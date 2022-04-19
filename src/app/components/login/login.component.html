@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6 col-lg-7 d-flex align-items-center">
               <div class="card-body p-4 p-lg-5 text-black">
-                <form>
+                <form [formGroup]="form" (ngSubmit)="onSubmit($event)">
                   <div class="d-flex align-items-center mb-3 pb-1">
                     <i
                       class="fas fa-cubes fa-2x me-3"
@@ -28,25 +28,58 @@
                   </h5>
 
                   <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example17">Email</label>
                     <input
+                      formControlName="email"
                       type="email"
                       id="form2Example17"
                       class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-valid': !Email?.errors && Email?.touched,
+                        'is-invalid': Email?.errors && Email?.touched
+                      }"
                     />
-                    <label class="form-label" for="form2Example17"
-                      >Email address</label
-                    >
+                    <div *ngIf="Email?.errors && Email?.touched">
+                      <p *ngIf="Email?.hasError('email')" class="text-danger">
+                        El formato de email debe ser valido
+                      </p>
+                      <p
+                        *ngIf="Email?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El email es requerido
+                      </p>
+                    </div>
                   </div>
 
                   <div class="form-outline mb-4">
+                    <label class="form-label" for="exampleInputPassword1"
+                      >Password</label
+                    >
                     <input
+                      formControlName="password"
                       type="password"
                       id="form2Example27"
                       class="form-control form-control-lg"
+                      [ngClass]="{
+                        'is-valid': !Password?.errors && Password?.touched,
+                        'is-invalid': Password?.errors && Password?.touched
+                      }"
                     />
-                    <label class="form-label" for="form2Example27"
-                      >Password</label
-                    >
+                    <div *ngIf="Password?.errors && Password?.touched">
+                      <p
+                        *ngIf="Password?.errors?.['minlength']"
+                        class="text-danger"
+                      >
+                        El password debe tener al menos 8 caracteres
+                      </p>
+                      <p
+                        *ngIf="Password?.hasError('required')"
+                        class="text-danger"
+                      >
+                        El password es requerido
+                      </p>
+                    </div>
                   </div>
 
                   <div class="pt-1 mb-4">

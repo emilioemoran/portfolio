@@ -32,13 +32,13 @@
     </div>
     <div id="info-data">
       <div>
-        <h1 id="info-name">Juan Perez</h1>
+        <h1 id="info-name">{{ encabezado.nombre }}</h1>
         <div>
-          <span id="info-position">informático</span> en
-          <span id="info-company">ORGANIZACION</span>
+          <span id="info-position">{{ encabezado.posicion }}</span> en
+          <span id="info-company">{{ encabezado.compania }}</span>
         </div>
         <div id="info-contact">
-          <span id="info-ubication">Buenos Aires (Argentina) </span>
+          <span id="info-ubication">{{ encabezado.ubicacion }}</span>
           <span><a href="#">Información de contacto</a></span>
         </div>
       </div>
@@ -49,7 +49,7 @@
               id="info-company-img"
               src="https://convocatorias.conicet.gov.ar/wp-content/uploads/logo-CONICET_opt.png"
             />
-            <h2 id="info-company-name">ORGANIZACION</h2>
+            <h2 id="info-company-name">{{ encabezado.compania }}</h2>
           </a>
         </li>
         <li>
@@ -102,6 +102,7 @@
             class="form-control"
             id="inputName"
             placeholder="Enter name"
+            [(ngModel)]="modalData.nombre"
           />
         </div>
         <div class="form-group">
@@ -111,6 +112,7 @@
             class="form-control"
             id="inputPosition"
             placeholder="Enter position"
+            [(ngModel)]="modalData.posicion"
           />
         </div>
         <div class="form-group">
@@ -120,6 +122,7 @@
             class="form-control"
             id="inputCompany"
             placeholder="Enter company"
+            [(ngModel)]="modalData.compania"
           />
         </div>
         <div class="form-group">
@@ -129,6 +132,7 @@
             class="form-control"
             id="inputUbication"
             placeholder="Enter ubication"
+            [(ngModel)]="modalData.ubicacion"
           />
         </div>
       </div>
@@ -139,7 +143,8 @@
         <button
           type="button"
           class="btn btn-primary"
-          onclick="saveEditProfileModal()"
+          data-bs-dismiss="modal"
+          (click)="saveEditProfileModal()"
         >
           Save changes
         </button>

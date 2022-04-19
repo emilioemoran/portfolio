@@ -11,6 +11,7 @@ import { ExperienciaComponent } from './components/perfil/experiencia/experienci
 import { EducacionComponent } from './components/perfil/educacion/educacion.component';
 import { HabilidadesComponent } from './components/perfil/habilidades/habilidades.component';
 import { ProyectosComponent } from './components/perfil/proyectos/proyectos.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { ProyectosComponent } from './components/perfil/proyectos/proyectos.comp
     HabilidadesComponent,
     ProyectosComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

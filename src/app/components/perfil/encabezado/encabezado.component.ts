@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encabezado.component.css'],
 })
 export class EncabezadoComponent {
+  modalData = { nombre: '', compania: '', ubicacion: '', posicion: '' };
+  encabezado = { nombre: '', compania: '', ubicacion: '', posicion: '' };
+
   constructor(/* public dialog: MatDialog */) {}
+
+  saveEditProfileModal() {
+    this.encabezado = this.modalData;
+  }
 
   /* showModalEditaPerfil() {
     const dialogRef = this.dialog.open(ModalEditaPerfilComponent);
